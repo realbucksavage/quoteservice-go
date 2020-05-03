@@ -19,7 +19,7 @@ func main() {
 	}
 
 	root := createHttpHandler(qs)
-	handler := combineHandlers(root, loggingMiddlware)
+	handler := combineHandlers(root, rateLimiter, loggingMiddlware)
 
 	logger.Info("Starting server on port 8080...")
 	logger.Fatal(http.ListenAndServe(":8080", handler))
