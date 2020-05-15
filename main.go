@@ -25,7 +25,7 @@ func main() {
 	logger.Fatal(http.ListenAndServe(":8080", handler))
 }
 
-func createHttpHandler(qs quotes.QuoteService) http.HandlerFunc {
+func createHttpHandler(qs quotes.Service) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Content-Type", "application/json")
 

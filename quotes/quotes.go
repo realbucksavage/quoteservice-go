@@ -6,7 +6,7 @@ import (
 	"math/rand"
 )
 
-type QuoteService interface {
+type Service interface {
 	Random() Quote
 }
 
@@ -15,7 +15,7 @@ func (qs quoteSource) Random() Quote {
 	return qs.quotes[idx]
 }
 
-func NewService() (QuoteService, error) {
+func NewService() (Service, error) {
 	b, err := ioutil.ReadFile("data/quotes.json")
 	if err != nil {
 		return nil, err
