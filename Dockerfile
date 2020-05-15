@@ -1,14 +1,14 @@
 # Build
-FROM golang:1.13-alpine AS build
+FROM golang:1.14-alpine3.11 AS build
 
 WORKDIR /quoteservice
 
 COPY . .
 
-RUN go mod vendor && go build -o ./app .
+RUN go build -o ./app .
 
 # Deployment
-FROM alpine:3.7
+FROM alpine:3.11
 EXPOSE 8080
 
 WORKDIR /app
